@@ -1,6 +1,6 @@
-assets/*
-!assets/.gitignore
-protected/runtime/*
-!protected/runtime/.gitignore
-protected/data/*.db
-themes/classic/views/
+images/
+cosine_sim1.pkl
+cosine_sim3.pkl
+cosine_sim4.pkl
+images_emb.pkl
+df_embs.pkl
