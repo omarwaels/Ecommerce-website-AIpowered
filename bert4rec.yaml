@@ -1,0 +1,38 @@
+    data_path: C:\Users\Abdo\Desktop
+    USER_ID_FIELD: userID 
+    ITEM_ID_FIELD: itemID 
+    TIME_FIELD: timestamp 
+    user_inter_num_interval: [2, 100000]
+    item_inter_num_interval: [1,100000]
+    load_col: 
+            inter: [userID, itemID , rating, timestamp]
+
+    unused_col:
+            inter: [rating]
+
+    metrics: ['Recall','NDCG','Hit']
+    topk   : [1,5,10,20]
+    train_neg_sample_args : 
+                        
+    seed : 42 
+    train_batch_size: 1024
+    eval_step: 1                     # (int) The number of training epochs before an evaluation on the valid dataset.
+    n_layers: 2                      # (int) The number of transformer layers in transformer encoder.
+    n_heads: 2                      # (int) The number of attention heads for multi-head attention layer.
+    hidden_size : 64                  # (int) The number of features in the hidden state.
+    inner_size : 256                 # (int) The inner hidden size in feed-forward layer.
+    hidden_dropout_prob: 0.2         # (float) The probability of an element to be zeroed.
+    attn_dropout_prob: 0.2           # (float) The probability of an attention score to be zeroed.
+    hidden_act: 'gelu'              # (str) The activation function in feed-forward layer.
+    layer_norm_eps: 1e-12            # (float) A value added to the denominator for numerical stability.
+    initializer_range: 0.02          # (float) The standard deviation for normal initialization.
+    mask_ratio: 0.2                  # (float) The probability for a item replaced by MASK token.
+    loss_type: 'CE'                 # (str) The type of loss function.
+    ft_ratio: 0.5                  # (float) The probability of generating fine-tuning samples
+    neg_sampling: None
+    epochs: 30
+    eval_args: 
+        split: {'LS': test_only} #{'RS': [0.8,0,0.2]}
+        group_by: user
+        order: TO
+        mode: uni100
